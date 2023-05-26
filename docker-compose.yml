@@ -1,0 +1,25 @@
+version: "3.8"
+networks:
+  news_for_you:
+services:
+  rabbitmq:
+    image: rabbitmq:latest
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - news_for_you
+
+  reportservice:
+    networks:
+      - news_for_you
+    environment:
+      PORT: "8080"
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    depends_on:
+      - rabbitmq
+    ports:
+      - 8080:8080
