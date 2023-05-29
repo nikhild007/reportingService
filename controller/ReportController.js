@@ -3,7 +3,7 @@ const route = express.Router();
 const reportService = require("../services/ReportService");
 
 route.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("welcome to reporting service");
 });
 
 route.put("/updateClickCount", reportService.updateClickCount);
