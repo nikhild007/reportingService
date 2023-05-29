@@ -1,12 +1,12 @@
 const express = require("express");
-const route = express.Router();
+const router = express.Router();
 const reportService = require("../services/ReportService");
 
-route.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("welcome to reporting service");
 });
 
-route.put("/updateClickCount", reportService.updateClickCount);
-route.get("/getReportingData", reportService.getReportingData);
+router.put("/updateClickCount", reportService.updateClickCount);
+router.get("/getReportingData", reportService.getReportingData);
 
-module.exports = route;
+module.exports = router;
