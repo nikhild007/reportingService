@@ -7,6 +7,6 @@ router.get("/", (req, res) => {
 });
 
 router.put("/updateClickCount", reportService.updateClickCount);
-router.get("/getReportingData", reportService.getReportingData);
+router.post("/getReportingData", reportService.getReportingData);
 
 module.exports = router;
