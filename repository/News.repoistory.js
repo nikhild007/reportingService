@@ -9,7 +9,7 @@ const getAllNews = async ({ skip, limit }) => {
     .sort({ publishedAt: -1 })
     .skip(skip)
     .limit(limit)
-    .populate("agencyId", "logo")
+    .populate("agencyId", "logo name")
     .populate("categoryId", "title");
 };
 module.exports = { updateClicks, getAllNews };
