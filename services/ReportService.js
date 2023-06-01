@@ -4,7 +4,7 @@ const updateClickCount = async (req, res) => {
     const { _id } = req.body;
     await updateClicks({ _id });
     res.json({ message: "Updated Click count" }).status(200);
-  } catch (err) {
+  } catch (error) {
     console.log("Error message:", error.message);
   }
 };
