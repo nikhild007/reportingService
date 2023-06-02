@@ -19,7 +19,7 @@ const dbConnect = async () => {
 let channel;
 
 async function rabbitMqConnect() {
-  const connectionUrl = "amqp://localhost:5672";
+  const connectionUrl = process.env.AMQP_SERVER;
   const connection = await amqp.connect(connectionUrl);
   channel = await connection.createChannel();
   await channel.assertQueue("REPORT");

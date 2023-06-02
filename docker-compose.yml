@@ -1,17 +1,21 @@
 version: "3.8"
+
 services:
   reportservice:
+    # image: mfsinik/report-service:latest
+    # container_name: reportservice
     networks:
-      - mongo-db_mongo-network
-    environment:
-      PORT: "8181"
+      - mongo-compass_mongo-network
     restart: on-failure
     build:
       context: ./
       dockerfile: ./Dockerfile
-    ports:
-      - 8181:8181
+    deploy:
+      replicas: 2
+    labels:
+      - "traefik.enable=true" # <== Enable traefik to proxy this container
+      - "traefik.http.routers.report-service.rule=Host(`report-service.localhost`)"
 
 networks:
-  mongo-db_mongo-network:
+  mongo-compass_mongo-network:
     external: true
