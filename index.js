@@ -9,7 +9,7 @@ const corsOptions = {
 const cors = require("cors");
 dotenv.config({ path: ".env" });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8181;
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(require("./controller/ReportController"));

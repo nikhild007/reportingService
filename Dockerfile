@@ -1,8 +1,9 @@
 FROM node:alpine
 WORKDIR /app
-RUN npm install
-COPY . .
-COPY .npmrc ./
 COPY package.json ./
+COPY .npmrc ./
+RUN npm install -f
+COPY . .
+EXPOSE 8181
 CMD npm start
 

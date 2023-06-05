@@ -12,8 +12,13 @@ const updateClickCount = async (req, res) => {
 const getReportingData = async (req, res) => {
   try {
     const { page } = req.body;
-    let skip = (page - 1) * 20;
-    let limit = 20;
+    let skip = 0;
+    let limit = 0;
+
+    if(page){
+      skip = (page - 1) * 20;
+      limit = 20;
+    }
     const newsData = await getAllNews({ skip, limit });
     res.status(200).json({ data: newsData });
   } catch (error) {
